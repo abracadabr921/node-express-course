@@ -27,11 +27,18 @@ let item = "Enter something below.";
 // This is just ordinary html with string interpolation.
 const form = () => {
   return `
+  <head>
+  <style>
+  
+  input:hover{width:200px}
+  </style>
+  </head>
   <body>
   <p>${item}</p>
   <form method="POST">
   <input name="item"></input>
   <button type="submit">Submit</button>
+  <p>Your Answer: ${item}</p>
   </form>
   </body>
   `;
