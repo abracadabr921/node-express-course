@@ -1,12 +1,29 @@
-console.log('Express Tutorial')
-
-
 const express = require('express')
 const { products } = require("./data")
-
 const app = express()
 
-app.use(express.static("./public"))
+const peopleRouter = require('./routes/people')
+
+app.use(express.static("./methods-public"))
+
+
+const logger = (req, res, next) =>{
+    const method = req.method 
+    const url = req.url
+    console.log(method, url)
+    next()
+}
+
+app.use('/', logger)
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use("/api/v1/people", peopleRouter);
+
+app.get('/', (req, res)=>{
+    res.send('Home')
+})
 
 app.get('/api/v1/test', (req,res)=>{
     res.json({ message: "It worked!" })
