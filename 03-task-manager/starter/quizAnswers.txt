@@ -1,0 +1,8 @@
+1. Middleware helps to organize the application
+ and to structure it, with help of middleware you can add more functionality to the project
+
+2. create, read, update and delete, it is the basic to implement a persistent storage application
+
+3. 
+    1) The application accessing to .env by help of dotenv library 
+    2) By adding .env to .gitignore, .env file will not be added to the repository
